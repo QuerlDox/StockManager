@@ -1,0 +1,12 @@
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\bin\Debug\Stock.exe.config
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\bin\Debug\Stock.exe
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\bin\Debug\Stock.pdb
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\obj\Debug\Stock.csprojAssemblyReference.cache
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\obj\Debug\Stock.Properties.Resources.resources
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\obj\Debug\Stock.StockMain.resources
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\obj\Debug\Stock.csproj.GenerateResource.cache
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\obj\Debug\Stock.csproj.CoreCompileInputs.cache
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\obj\Debug\Stock.exe
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\obj\Debug\Stock.pdb
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\obj\Debug\Stock.LoginForm.resources
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\obj\Debug\Stock.ProductForm.resources
