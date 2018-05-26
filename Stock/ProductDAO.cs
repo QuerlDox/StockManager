@@ -7,14 +7,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
+
 namespace Stock
 {
     class ProductDAO
     {
-        public DataTable dataTable;
 
+        public DataTable dataTable;
         public String messageBox;
-        String dataSource = "Data Source=DESKTOP-937IC7S\\MSSQLSERVER01;Initial Catalog=Stock;Integrated Security=True";
+       // StockResources stockResources = new StockResources();
+       // private String dataSource = stockResources.dataSource;
+
+        
+
+
+        
 
        
 
@@ -24,8 +33,8 @@ namespace Stock
 
         public void loadData()
         {
-
-            SqlConnection sqlConnection = new SqlConnection(dataSource);
+            StockResources stockResources = new StockResources();
+            SqlConnection sqlConnection = new SqlConnection(stockResources.dataSource);
 
             SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM [Stock].[dbo].[Products]", sqlConnection);
             dataTable = new DataTable();
@@ -35,7 +44,8 @@ namespace Stock
 
 
         public void addProductItem(Product product) {
-            SqlConnection sqlConnection = new SqlConnection(dataSource);
+            StockResources stockResources = new StockResources();
+            SqlConnection sqlConnection = new SqlConnection(stockResources.dataSource);
             sqlConnection.Open();
             bool status = false;
             if (product.status == 0)
@@ -70,8 +80,9 @@ namespace Stock
         public void deleteProductItem(Product product) {
 
 
-
-            SqlConnection sqlConnection = new SqlConnection(dataSource);
+            StockResources stockResources = new StockResources();
+            SqlConnection sqlConnection = new SqlConnection(stockResources.dataSource);
+            
 
             var sqlQuery = "";
 
