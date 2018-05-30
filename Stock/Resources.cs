@@ -9,7 +9,7 @@ namespace Stock
 {
     public static class Resources
     {
-        public static string GetDBConnectionString(string connectionName) {
+        public static string getDatabaseConnectionString(string connectionName) {
             return ConfigurationManager.ConnectionStrings[connectionName].ConnectionString;
         }
     }

@@ -12,7 +12,7 @@ namespace Stock
     {
         static string sqlServerName = "mssqlDB";
         static SqlConnection sqlConnection = new SqlConnection();
-        static string sqlConnectionString = Resources.GetDBConnectionString(sqlServerName);
+        static string sqlConnectionString = Resources.getDatabaseConnectionString(sqlServerName);
         public static IDbConnection GetConnection() {
             try
             {

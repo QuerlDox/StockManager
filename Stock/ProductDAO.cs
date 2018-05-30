@@ -48,7 +48,7 @@ namespace Stock
             SqlConnection sqlConnection = new SqlConnection(stockResources.mssqlDataSource);
             sqlConnection.Open();
             bool status = false;
-            if (product.status == 0)
+            if (product.ProductStatus == 0)
             {
                 status = true;
             }
@@ -59,9 +59,9 @@ namespace Stock
 
             var sqlQuery = "";
 
-            if (IfProductsExists(sqlConnection, product.productCode))
+            if (IfProductsExists(sqlConnection, product.ProductCode))
             {
-                sqlQuery = @"UPDATE [Products] SET [ProductName] = '" + product.productName + "' ,[ProductStatus] = '" + status + "' WHERE [ProductCode] = '" + product.productCode + "'";
+                sqlQuery = @"UPDATE [Products] SET [ProductName] = '" + product.ProductName + "' ,[ProductStatus] = '" + status + "' WHERE [ProductCode] = '" + product.ProductCode + "'";
             }
             else
             {
@@ -70,7 +70,7 @@ namespace Stock
            ,[ProductName]
            ,[ProductStatus])
      VALUES
-           ('" + product.productCode + "',' " + product.productName + "',' " + status + "')";
+           ('" + product.ProductCode + "',' " + product.ProductName + "',' " + status + "')";
             }
             SqlCommand sqlCommand = new SqlCommand(sqlQuery, sqlConnection);
             sqlCommand.ExecuteNonQuery();
@@ -86,14 +86,14 @@ namespace Stock
 
             var sqlQuery = "";
 
-            if (IfProductsExists(sqlConnection, product.productCode))
+            if (IfProductsExists(sqlConnection, product.ProductCode))
             {
-                sqlQuery = @"DELETE FROM [dbo].[Products] WHERE [ProductCode] = '" + product.productCode + "'";
+                sqlQuery = @"DELETE FROM [dbo].[Products] WHERE [ProductCode] = '" + product.ProductCode + "'";
                 SqlCommand sqlCommand = new SqlCommand(sqlQuery, sqlConnection);
                 sqlConnection.Open();
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
-                messageBox = " delete "+ product.productName +" ?";
+                messageBox = " delete "+ product.ProductName +" ?";
 
             }
             else

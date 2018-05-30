@@ -113,7 +113,7 @@
             this.statusLbl.Name = "statusLbl";
             this.statusLbl.Size = new System.Drawing.Size(37, 13);
             this.statusLbl.TabIndex = 7;
-            this.statusLbl.Text = "Status";
+            this.statusLbl.Text = "ProductStatus";
             // 
             // productDataGridView
             // 
@@ -144,7 +144,7 @@
             // 
             // productStatusData
             // 
-            this.productStatusData.HeaderText = "Status ";
+            this.productStatusData.HeaderText = "ProductStatus ";
             this.productStatusData.Name = "productStatusData";
             // 
             // Products

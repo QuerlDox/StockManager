@@ -39,9 +39,9 @@ namespace Stock
         {
             product = new Product();
 
-            product.productCode = productCodeDataTxtBox.Text;
-            product.productName = productNameDataTxtBox.Text;
-            product.status = productStatusComboBox.SelectedIndex;
+            product.ProductCode = productCodeDataTxtBox.Text;
+            product.ProductName = productNameDataTxtBox.Text;
+            product.ProductStatus = productStatusComboBox.SelectedIndex;
 
             productDao.addProductItem(product);
 
@@ -76,9 +76,9 @@ namespace Stock
         {
             product = new Product();
 
-            product.productCode = productCodeDataTxtBox.Text;
-            product.productName = productNameDataTxtBox.Text;
-            product.status = productStatusComboBox.SelectedIndex;
+            product.ProductCode = productCodeDataTxtBox.Text;
+            product.ProductName = productNameDataTxtBox.Text;
+            product.ProductStatus = productStatusComboBox.SelectedIndex;
 
             productDao.deleteProductItem(product);
 

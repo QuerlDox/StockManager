@@ -8,9 +8,9 @@ namespace Stock
 {
     class Product
     {
-        public String productCode { get; set; }
-        public String productName { get; set; }
-        public int status { get; set; }
+        public String ProductCode { get; set; }
+        public String ProductName { get; set; }
+        public int ProductStatus { get; set; }
 
     }
 }

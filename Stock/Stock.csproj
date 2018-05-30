@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionFactory.cs" />
+    <Compile Include="IProductRepository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="LoginForm.cs">
@@ -67,11 +68,12 @@
     <Compile Include="ProductForm.Designer.cs">
       <DependentUpon>ProductForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="Resources.cs" />
-    <Compile Include="StockResources.cs" />
+    <Compile Include="StockApplicationResources.cs" />
     <Compile Include="StockMain.cs">
       <SubType>Form</SubType>
     </Compile>
