@@ -34,49 +34,25 @@ namespace Stock
         private void loginBtn_Click(object sender, EventArgs e)
         {
             // TODO Check login user name and password
-            StockResources stockResources = new StockResources();
+            bool accountExists = false;
             String username = userNameTxtBox.Text;
             String password = passwordTxtBox.Text;
-
-            String sqlQuery = @"SELECT COUNT(*) FROM [Stock].[dbo].[Login] Where UserName = @username and Password = @password";
-
-            try
+            Login login = new Login();
+            accountExists = login.IsAuthenticated(username, password);
+            if (accountExists)
             {
-                using (SqlConnection sqlConnection = new SqlConnection(stockResources.dataSource))
-                {
-                    sqlConnection.Open();
-
-                    using (SqlCommand sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
-                    {
-                        sqlCommand.Parameters.Add(new SqlParameter("@username", username));
-                        sqlCommand.Parameters.Add(new SqlParameter("@password", password));
-
-                        int result = (int)sqlCommand.ExecuteScalar();
-                        if (result > 0)
-                        {
-                            this.Hide();
-                            StockMain main = new StockMain();
-                            main.Show();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Invalid Username and Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            clearBtn_Click(sender, e);
-                        }
-
-                    }
-
-                }
-
-
+                this.Hide();
+                StockMain main = new StockMain();
+                main.Show();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+            else {
+                MessageBox.Show("Invalid Username and Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clearBtn_Click(sender, e);
             }
 
 
-        }
+
+         }
 
     }
 }

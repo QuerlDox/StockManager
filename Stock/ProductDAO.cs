@@ -17,8 +17,8 @@ namespace Stock
 
         public DataTable dataTable;
         public String messageBox;
-       // StockResources stockResources = new StockResources();
-       // private String dataSource = stockResources.dataSource;
+       // StockApplicationResources stockResources = new StockApplicationResources();
+       // private String mssqlDataSource = stockResources.mssqlDataSource;
 
         
 
@@ -33,8 +33,8 @@ namespace Stock
 
         public void loadData()
         {
-            StockResources stockResources = new StockResources();
-            SqlConnection sqlConnection = new SqlConnection(stockResources.dataSource);
+            StockApplicationResources stockResources = new StockApplicationResources();
+            SqlConnection sqlConnection = new SqlConnection(stockResources.mssqlDataSource);
 
             SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM [Stock].[dbo].[Products]", sqlConnection);
             dataTable = new DataTable();
@@ -44,8 +44,8 @@ namespace Stock
 
 
         public void addProductItem(Product product) {
-            StockResources stockResources = new StockResources();
-            SqlConnection sqlConnection = new SqlConnection(stockResources.dataSource);
+            StockApplicationResources stockResources = new StockApplicationResources();
+            SqlConnection sqlConnection = new SqlConnection(stockResources.mssqlDataSource);
             sqlConnection.Open();
             bool status = false;
             if (product.status == 0)
@@ -80,8 +80,8 @@ namespace Stock
         public void deleteProductItem(Product product) {
 
 
-            StockResources stockResources = new StockResources();
-            SqlConnection sqlConnection = new SqlConnection(stockResources.dataSource);
+            StockApplicationResources stockResources = new StockApplicationResources();
+            SqlConnection sqlConnection = new SqlConnection(stockResources.mssqlDataSource);
             
 
             var sqlQuery = "";

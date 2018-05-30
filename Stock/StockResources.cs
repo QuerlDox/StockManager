@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Stock
 {
-    class StockResources
+    class StockApplicationResources
     {
-        public String dataSource = "Data Source=DESKTOP-937IC7S\\MSSQLSERVER01;Initial Catalog=Stock;Integrated Security=True";
+        public String mssqlDataSource = "Data Source=DESKTOP-937IC7S\\MSSQLSERVER01;Initial Catalog=Stock;Integrated Security=True";
       
     }
 }
