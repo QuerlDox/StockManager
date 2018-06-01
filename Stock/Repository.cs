@@ -24,7 +24,7 @@ namespace Stock
             throw new NotImplementedException();
         }
 
-        public void Update(T entity)
+        public void Add(T entity)
         {
             throw new NotImplementedException();
         }

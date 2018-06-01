@@ -40,7 +40,7 @@ namespace Stock
             throw new NotImplementedException();
         }
 
-        public void Update(User entity)
+        public void Add(User entity)
         {
             throw new NotImplementedException();
         }

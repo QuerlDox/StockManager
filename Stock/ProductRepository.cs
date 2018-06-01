@@ -15,29 +15,36 @@ namespace Stock
             throw new NotImplementedException();
         }
 
-        public void Delete(Product entity)
+        public void Delete(Product product)
         {
-            throw new NotImplementedException();
+            using (IDbConnection idbConnection = ConnectionFactory.GetConnection()) {
+                 idbConnection.Query<Product>("DELETE FROM[dbo].[Products] WHERE[ProductCode] = '" + product.ProductCode + "'");
+            }
+
         }
 
         public List<Product> GetAll()
         {
 
             using (IDbConnection idbConnection = ConnectionFactory.GetConnection()) {
-                if (idbConnection.State == ConnectionState.Closed)
-                    idbConnection.Open();
-                return idbConnection.Query<Product>("Select ProductCode, ProductName, ProductStatus from Products").ToList();
+                  return idbConnection.Query<Product>("Select ProductCode, ProductName, ProductStatus from Products").ToList();
             }
         }
 
         public Product GetById(int id)
         {
-            throw new NotImplementedException();
+            using (IDbConnection idbConnection = ConnectionFactory.GetConnection())
+            {
+                return idbConnection.Query<Product>("SELECT * FROM [Stock].[dbo].[Products] WHERE [ProductCode] = @Id", new {Id = id}).FirstOrDefault();
+            }
         }
 
-        public void Update(Product entity)
+        public void Add(Product product)
         {
-            throw new NotImplementedException();
+            using (IDbConnection idbConnection = ConnectionFactory.GetConnection())
+            {
+                string sqlQuery =  @"INSERT INTO[Stock].[dbo].[Products] ([ProductCode],[ProductName],[ProductStatus]) VALUES ('" + product.ProductCode + "',' " + product.ProductName + "',' " + product.ProductStatus + "')";
+            }
         }
     }
 }

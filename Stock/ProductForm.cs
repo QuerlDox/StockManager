@@ -95,15 +95,17 @@ namespace Stock
 
         public void showProductTable() {
             productDataGridView.Rows.Clear();
-            productDao = new ProductDAO();
+            IProductRepository productRepository = new ProductRepository();
+          
             
 
-            foreach (DataRow item in productDao.dataTable.Rows)
+           // foreach (DataRow item in productDao.dataTable.Rows)
+               foreach(Product item in productRepository.GetAll())
             {
                 int n = productDataGridView.Rows.Add();
-                productDataGridView.Rows[n].Cells[0].Value = item["ProductCode"].ToString();
-                productDataGridView.Rows[n].Cells[1].Value = item["ProductName"].ToString();
-                if ((bool)item["ProductStatus"])
+                productDataGridView.Rows[n].Cells[0].Value = item.ProductCode;
+                productDataGridView.Rows[n].Cells[1].Value = item.ProductName;
+                if (item.ProductStatus == 0)
                 {
                     productDataGridView.Rows[n].Cells[2].Value = "Active";
                 }
