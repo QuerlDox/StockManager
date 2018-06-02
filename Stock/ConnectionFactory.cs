@@ -32,6 +32,8 @@ namespace Stock
             }
         }
 
+
+
        
         /*
         static StockApplicationResources stockResources = new StockApplicationResources();

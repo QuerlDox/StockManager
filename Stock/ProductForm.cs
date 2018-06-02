@@ -15,8 +15,8 @@ namespace Stock
 {
     public partial class ProductForm : Form
     {
-        ProductDAO productDao;
-        Product product;
+       private ProductService productService;
+       private  Product product;
        
 
         public ProductForm()
@@ -38,12 +38,12 @@ namespace Stock
         private void addProductBtn_Click(object sender, EventArgs e)
         {
             product = new Product();
-
+            productService = new ProductService();
             product.ProductCode = productCodeDataTxtBox.Text;
             product.ProductName = productNameDataTxtBox.Text;
             product.ProductStatus = productStatusComboBox.SelectedIndex;
 
-            productDao.addProductItem(product);
+            productService.addProductItem(product);
 
             productCodeDataTxtBox.Clear();
             productNameDataTxtBox.Clear();
@@ -80,14 +80,14 @@ namespace Stock
             product.ProductName = productNameDataTxtBox.Text;
             product.ProductStatus = productStatusComboBox.SelectedIndex;
 
-            productDao.deleteProductItem(product);
+            productService.deleteProductItem(product);
 
             productCodeDataTxtBox.Clear();
             productNameDataTxtBox.Clear();
 
 
             // Read the Data from the Products table
-            MessageBox.Show(productDao.messageBox);
+            MessageBox.Show(productService.message);
             showProductTable();
             
 
@@ -95,12 +95,12 @@ namespace Stock
 
         public void showProductTable() {
             productDataGridView.Rows.Clear();
-            IProductRepository productRepository = new ProductRepository();
+            productService = new ProductService();
           
             
 
            // foreach (DataRow item in productDao.dataTable.Rows)
-               foreach(Product item in productRepository.GetAll())
+               foreach(Product item in productService.loadData())
             {
                 int n = productDataGridView.Rows.Add();
                 productDataGridView.Rows[n].Cells[0].Value = item.ProductCode;

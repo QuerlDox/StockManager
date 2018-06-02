@@ -19,6 +19,7 @@ namespace Stock
         {
             using (IDbConnection idbConnection = ConnectionFactory.GetConnection()) {
                  idbConnection.Query<Product>("DELETE FROM[dbo].[Products] WHERE[ProductCode] = '" + product.ProductCode + "'");
+                idbConnection.Close();
             }
 
         }
@@ -27,7 +28,9 @@ namespace Stock
         {
 
             using (IDbConnection idbConnection = ConnectionFactory.GetConnection()) {
-                  return idbConnection.Query<Product>("Select ProductCode, ProductName, ProductStatus from Products").ToList();
+                  List<Product> product = idbConnection.Query<Product>("Select ProductCode, ProductName, ProductStatus from Products").ToList();
+                 idbConnection.Close();
+                 return product;
             }
         }
 
@@ -35,7 +38,9 @@ namespace Stock
         {
             using (IDbConnection idbConnection = ConnectionFactory.GetConnection())
             {
-                return idbConnection.Query<Product>("SELECT * FROM [Stock].[dbo].[Products] WHERE [ProductCode] = @Id", new {Id = id}).FirstOrDefault();
+                Product product = idbConnection.Query<Product>("SELECT * FROM [Stock].[dbo].[Products] WHERE [ProductCode] = @Id", new {Id = id}).FirstOrDefault();
+                idbConnection.Close();
+                return product;
             }
         }
 
@@ -44,7 +49,12 @@ namespace Stock
             using (IDbConnection idbConnection = ConnectionFactory.GetConnection())
             {
                 string sqlQuery =  @"INSERT INTO[Stock].[dbo].[Products] ([ProductCode],[ProductName],[ProductStatus]) VALUES ('" + product.ProductCode + "',' " + product.ProductName + "',' " + product.ProductStatus + "')";
+                idbConnection.Execute(sqlQuery);
+                idbConnection.Close();
+                
             }
         }
+
+
     }
 }
