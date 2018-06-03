@@ -18,28 +18,18 @@ namespace Stock
 
         public void addProductItem(Product product) {
 
-            
-            bool status = false;
-            if (product.ProductStatus == 0)
-            {
-                status = true;
-            }
-            else
-            {
-                status = false;
-            }
-
+        
             var sqlQuery = "";
 
             if (IfProductsExists(product.ProductCode))
             {
-                 sqlQuery = @"UPDATE [Products] SET [ProductName] = '" + product.ProductName + "' ,[ProductStatus] = '" + status + "' WHERE [ProductCode] = '" + product.ProductCode + "'";
+                 sqlQuery = @"UPDATE [Products] SET [ProductName] = '" + product.ProductName + "' ,[ProductStatus] = '" + product.ProductStatus + "' WHERE [ProductCode] = '" + product.ProductCode + "'";
               
 
                 using (IDbConnection idbConnection = ConnectionFactory.GetConnection())
                 {
                     idbConnection.Execute(sqlQuery);
-                    //idbConnection.Close();
+                    
                 }
             }
             else
@@ -59,9 +49,14 @@ namespace Stock
             IProductRepository productRepository = new ProductRepository();
             
             if (IfProductsExists(product.ProductCode)) {
-
-                productRepository.Delete(product);
-                message = " delete " + product.ProductName + " ?";
+                if (product.ProductStatus == 1)
+                {
+                    productRepository.Delete(product);
+                    message = " delete " + product.ProductName + " ?";
+                }
+                else {
+                    message = product.ProductName + " is still active and cannot be deleted ....";
+                }
             }
             else
             {

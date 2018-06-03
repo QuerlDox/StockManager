@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -12,15 +13,14 @@ namespace Stock
     {
         // check if eligible to be logged in
         internal bool IsAuthenticated(string username, string pass) {
-            StockApplicationResources stockResources = new StockApplicationResources();
+                        
             String sqlQuery = @"SELECT COUNT(*) FROM [Stock].[dbo].[Login] Where UserName = @username and Password = @password";
 
             try
             {
-                using (SqlConnection sqlConnection = new SqlConnection(stockResources.mssqlDataSource))
+                using (SqlConnection sqlConnection = (SqlConnection)ConnectionFactory.GetConnection()) 
                 {
-                    sqlConnection.Open();
-
+                    
                     using (SqlCommand sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
                     {
                         sqlCommand.Parameters.Add(new SqlParameter("@username", username));

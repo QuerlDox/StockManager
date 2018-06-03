@@ -32,6 +32,21 @@ namespace Stock
             }
         }
 
+        public static IDbConnection CloseConnection() {
+            try
+            {
+                if (sqlConnection.State == System.Data.ConnectionState.Open)
+                {
+                    sqlConnection.Close();
+                }
+                return sqlConnection;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
 
 
        
