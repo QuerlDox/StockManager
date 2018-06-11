@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stock
+namespace StockSystem
 {
     class ConnectionFactory
     {
@@ -47,28 +47,7 @@ namespace Stock
             }
         }
 
-
-
-       
-        /*
-        static StockApplicationResources stockResources = new StockApplicationResources();
-        static SqlConnection sqlConnection = new SqlConnection();
-        public static IDbConnection GetConnection()
-        {
-            try
-            {
-                if (sqlConnection.State != System.Data.ConnectionState.Open)
-                {
-                    sqlConnection = new SqlConnection(stockResources.mssqlDataSource);
-                    sqlConnection.Open();
-                }
-                return sqlConnection;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-        */
+             
+        
     }
 }

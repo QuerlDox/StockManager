@@ -1,4 +1,4 @@
-﻿namespace Stock
+﻿namespace StockSystem
 {
     partial class ProductForm
     {

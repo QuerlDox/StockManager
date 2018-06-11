@@ -1,4 +1,4 @@
-﻿namespace Stock
+﻿namespace StockSystem
 {
     partial class StockMain
     {
@@ -65,7 +65,7 @@
             // 
             this.stockToolStripMenuItem.Name = "stockToolStripMenuItem";
             this.stockToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.stockToolStripMenuItem.Text = "Stock";
+            this.stockToolStripMenuItem.Text = "StockSystem";
             // 
             // reportToolStripMenuItem
             // 
@@ -86,7 +86,7 @@
             // 
             this.stockListToolStripMenuItem.Name = "stockListToolStripMenuItem";
             this.stockListToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.stockListToolStripMenuItem.Text = "Stock List";
+            this.stockListToolStripMenuItem.Text = "StockSystem List";
             // 
             // statusStrip
             // 

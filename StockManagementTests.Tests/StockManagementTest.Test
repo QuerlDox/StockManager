@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace StockManagementTests.Tests
+{
+    class StockManagementTest
+    {
+			[Fact]
+		  public void enterQty_shouldChangeQty() {
+            int expected = 5;
+            int actual = new StockMaintenance().enterQty(5);
+            Assert.Equal(actual, expected);
+        }
+    }
+}

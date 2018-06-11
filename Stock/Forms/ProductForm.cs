@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 
 
-namespace Stock
+namespace StockSystem
 {
     public partial class ProductForm : Form
     {

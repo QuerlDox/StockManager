@@ -1,0 +1,15 @@
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\bin\Debug\StockSystem.exe.config
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\bin\Debug\StockSystem.exe
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\bin\Debug\StockSystem.pdb
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\bin\Debug\Dapper.dll
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\bin\Debug\Dapper.xml
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\obj\Debug\StockSystem.LoginForm.resources
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\obj\Debug\StockSystem.ProductForm.resources
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\obj\Debug\StockSystem.Properties.Resources.resources
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\obj\Debug\StockSystem.StockMain.resources
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\obj\Debug\StockSystem.csproj.GenerateResource.cache
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\obj\Debug\StockSystem.csproj.CoreCompileInputs.cache
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\obj\Debug\StockSystem.csproj.CopyComplete
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\obj\Debug\StockSystem.exe
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\obj\Debug\StockSystem.pdb
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\obj\Debug\StockSystem.csprojAssemblyReference.cache
