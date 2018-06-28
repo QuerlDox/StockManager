@@ -50,7 +50,7 @@
   <ItemGroup>
     <Compile Include="StackComparer.cs" />
     <Compile Include="StockComparer.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="StockMaintenanceUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace StockSystem
 {
+    [Serializable]
     class Product
     {
-        public String ProductCode { get; set; }
-        public String ProductName { get; set; }
-        public int ProductStatus { get; set; }
+        private string productCode;
+        private string productName;
+        private int productStatus;
+        public String ProductCode { get { return this.productName; } set { this.productName = value; } }
+        public String ProductName { get { return this.productCode; } set { this.productCode = value; } }
+        public int ProductStatus { get { return this.productStatus; } set { this.productStatus = value; } }
 
         
     }

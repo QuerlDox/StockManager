@@ -1,24 +1,42 @@
-﻿using System;
+﻿using StockSystem.StockManagement;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Text;
+using System.Threading.Tasks;
+using Xunit;
 using StockSystem;
-using StockSystem.StockManagement;
+using FluentAssertions;
+using StockSystem.Persistence;
 
-namespace WindowsStockManagementTests.Tests
+namespace StockManagementXUnitTests.Test
 {
-    [TestClass]
-    public class StockMaintentanceUnitTest
+    public class StockMaintenanceXUnitTest
     {
-        [TestMethod]
-        public void EnterQty_shouldChangeQty()
+        [Fact]
+        public void UpdateProductQty_shouldChangeProductQtyInStock_inXunit()
         {
+            Product beefPatty = new Product
+            {
+                ProductCode = "1",
+                ProductName = "beefPatty",
+                ProductStatus = 1
+            };
+
+         
+
             int expected = 5;
-            int actual = new StockMaintenance().enterQty(5);
-            Assert.AreEqual(actual, expected);
+            StockInformation stockInfo = StockInformation.Instance();
+          
+            StockMaintenance stockOnHand = new StockMaintenance(stockInfo);
+                stockOnHand.AddProductToStock(beefPatty, 20);
+                stockOnHand.UpdateProductQty(beefPatty, 5);
+         
+            int actual = stockOnHand.GetStockQty(beefPatty);
+            Assert.Equal(actual, expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetStockOnHand_shouldReturnStockOnHand()
         {
 
@@ -62,13 +80,10 @@ namespace WindowsStockManagementTests.Tests
             // Action
             List<StockSystem.StockManagement.Stock> actual = new StockMaintenance().GetStockOnHand();
 
-         
-            // Assert
-
-            CollectionAssert.AreEqual(expected, actual, new StackComparer());
-
+       
+            expected.Should().BeEquivalentTo(actual);
 
         }
-
     }
+
 }

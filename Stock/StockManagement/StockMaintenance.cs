@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StockSystem.Persistence;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,32 @@ namespace StockSystem.StockManagement
 {
     internal class StockMaintenance
     {
-        public int enterQty(int qty) {
-            return qty;
+        private StockInformation _stockInfo;
+
+        public StockMaintenance() {
+
         }
+       
+        public StockMaintenance(StockInformation stockInfo) {
+           _stockInfo = StockInformation.Instance();
+           _stockInfo = stockInfo;
+
+        }
+
+        public void AddProductToStock(Product product, int qty) {
+            _stockInfo.Load();
+            _stockInfo.AddStock(product, qty);
+            _stockInfo.Save();
+        }
+
+        public void UpdateProductQty(Product product, int qty) {
+        
+            _stockInfo.Load();
+            _stockInfo.UpdateStock(product, qty);
+            _stockInfo.Save();
+        }
+
+
 
         public List<Stock> GetStockOnHand() {
 
@@ -48,6 +72,11 @@ namespace StockSystem.StockManagement
             return StockOnHand;
 
 
+        }
+
+        public int GetStockQty(Product product) {
+            _stockInfo.Load();
+           return  _stockInfo.GetStock(product);
         }
 
     }

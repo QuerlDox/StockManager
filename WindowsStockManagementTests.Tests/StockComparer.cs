@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using StockSystem.StockManagement;
 using StockSystem;
 
-namespace WindowsStockManagementTests.Tests
+namespace StockManagementUnitTests.Tests
 {
     class StockComparer : IEqualityComparer<StockSystem.StockManagement.Stock>
     {

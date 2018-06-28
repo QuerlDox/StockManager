@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using StockSystem.StockManagement;
 
-namespace WindowsStockManagementTests.Tests
+namespace StockManagementUnitTests.Tests
 {
     class StackComparer : Comparer<Stock>
     {
