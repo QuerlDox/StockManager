@@ -17,3 +17,8 @@ C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\WindowsStockManagemen
 C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\WindowsStockManagementTests.Tests\obj\Debug\WindowsStockManagementTests.Tests.csproj.CopyComplete
 C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\WindowsStockManagementTests.Tests\obj\Debug\WindowsStockManagementTests.Tests.dll
 C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\WindowsStockManagementTests.Tests\obj\Debug\WindowsStockManagementTests.Tests.pdb
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\WindowsStockManagementTests.Tests\bin\Debug\FluentAssertions.dll
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\WindowsStockManagementTests.Tests\bin\Debug\System.ValueTuple.dll
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\WindowsStockManagementTests.Tests\bin\Debug\FluentAssertions.pdb
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\WindowsStockManagementTests.Tests\bin\Debug\FluentAssertions.xml
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\WindowsStockManagementTests.Tests\bin\Debug\System.ValueTuple.xml

@@ -36,47 +36,15 @@ namespace StockSystem.StockManagement
 
 
 
-        public List<Stock> GetStockOnHand() {
-
-            Product beefPatty = new Product
-            {
-                ProductCode = "1",
-                ProductName = "beefPatty",
-                ProductStatus = 1
-            };
-
-
-            Product buns = new Product
-            {
-                ProductCode = "2",
-                ProductName = "Buns",
-                ProductStatus = 1
-            };
-
-            Stock stock1 = new Stock()
-            {
-                Product = beefPatty,
-                Quantity = 10,
-            };
-
-            Stock stock2 = new Stock()
-            {
-                Product = buns,
-                Quantity = 100,
-            };
-
-            List<Stock> StockOnHand = new List<Stock>();
-            StockOnHand.Add(stock1);
-            StockOnHand.Add(stock2);
-
-            return StockOnHand;
-
-
+        public List<Stock> GetStocksOnHand() {
+            _stockInfo.Load();
+              return  _stockInfo.GetStocksOnHand();
         }
+
 
         public int GetStockQty(Product product) {
             _stockInfo.Load();
-           return  _stockInfo.GetStock(product);
+           return  _stockInfo.GetStockQty(product);
         }
 
     }

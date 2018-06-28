@@ -13,6 +13,10 @@ namespace StockManagementXUnitTests.Test
 {
     public class StockMaintenanceXUnitTest
     {
+        private static StockInformation stockInfo = StockInformation.Instance();
+
+        private StockMaintenance stockOnHand = new StockMaintenance(stockInfo);
+
         [Fact]
         public void UpdateProductQty_shouldChangeProductQtyInStock_inXunit()
         {
@@ -23,21 +27,28 @@ namespace StockManagementXUnitTests.Test
                 ProductStatus = 1
             };
 
-         
+            Product buns = new Product
+            {
+                ProductCode = "2",
+                ProductName = "Buns",
+                ProductStatus = 1
+            };
+
+
 
             int expected = 5;
-            StockInformation stockInfo = StockInformation.Instance();
           
-            StockMaintenance stockOnHand = new StockMaintenance(stockInfo);
                 stockOnHand.AddProductToStock(beefPatty, 20);
+                stockOnHand.AddProductToStock(buns, 100);
                 stockOnHand.UpdateProductQty(beefPatty, 5);
+                stockOnHand.UpdateProductQty(buns, 5);
          
             int actual = stockOnHand.GetStockQty(beefPatty);
             Assert.Equal(actual, expected);
         }
 
         [Fact]
-        public void GetStockOnHand_shouldReturnStockOnHand()
+        public void GetStockOnHand_shouldReturnStockOnHand_inXUnit()
         {
 
             Product beefPatty = new Product
@@ -58,13 +69,13 @@ namespace StockManagementXUnitTests.Test
             StockSystem.StockManagement.Stock stock1 = new StockSystem.StockManagement.Stock()
             {
                 Product = beefPatty,
-                Quantity = 10,
+                Quantity = 5,
             };
 
             StockSystem.StockManagement.Stock stock2 = new StockSystem.StockManagement.Stock()
             {
                 Product = buns,
-                Quantity = 100,
+                Quantity = 5,
             };
 
 
@@ -78,7 +89,7 @@ namespace StockManagementXUnitTests.Test
             List<StockSystem.StockManagement.Stock> expected = StockMockList;
 
             // Action
-            List<StockSystem.StockManagement.Stock> actual = new StockMaintenance().GetStockOnHand();
+            List<StockSystem.StockManagement.Stock> actual = stockOnHand.GetStocksOnHand();
 
        
             expected.Should().BeEquivalentTo(actual);

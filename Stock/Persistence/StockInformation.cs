@@ -142,7 +142,7 @@ namespace StockSystem.Persistence
 
 
 
-        public int GetStock(Product product)
+        public int GetStockQty(Product product)
         {
             
             // Stock _stock = new Stock();
@@ -190,9 +190,33 @@ namespace StockSystem.Persistence
             }
 
         }
-    }
 
-}
+
+        public List<Stock> GetStocksOnHand()
+        {
+            List<Stock> _stockList = new List<Stock>();
+
+            if (this._stockDictionary.Count > 0)
+            {
+                foreach (Stock item in this._stockDictionary.Values)
+                {
+                    _stockList.Add(item);
+                }
+
+               
+            }
+            else
+            {
+                Console.WriteLine("Not a single Stock  Found");
+            }
+
+            return _stockList;
+
+        }
+
+        }
+
+    }
 
  
 

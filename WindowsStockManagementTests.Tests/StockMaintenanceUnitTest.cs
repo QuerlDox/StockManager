@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StockSystem;
 using StockSystem.Persistence;
@@ -11,8 +12,12 @@ namespace StockManagementUnitTests.Tests
     [TestClass]
     public class StockMaintentanceUnitTest
     {
-        
-        
+
+        private static StockInformation stockInfo = StockInformation.Instance();
+
+        private static StockMaintenance stockOnHand = new StockMaintenance(stockInfo);
+
+
         [TestMethod]
         public void UpdateProductQty_shouldChangeProductQtyInStock()
         {
@@ -23,13 +28,21 @@ namespace StockManagementUnitTests.Tests
                 ProductStatus = 1
             };
 
+            Product beefPatty = new Product
+            {
+                ProductCode = "1",
+                ProductName = "beefPatty",
+                ProductStatus = 1
+            };
 
-            int expected = 21;
-            StockInformation stockInfo = StockInformation.Instance();
 
-            StockMaintenance stockOnHand = new StockMaintenance(stockInfo);
+            int expected = 36;
+
+            stockOnHand.AddProductToStock(beefPatty, 20);
             stockOnHand.AddProductToStock(buns, 100);
-            stockOnHand.UpdateProductQty(buns, 21);
+            stockOnHand.UpdateProductQty(beefPatty, 36);
+            stockOnHand.UpdateProductQty(buns, 36);
+
             int actual = stockOnHand.GetStockQty(buns);
             Assert.AreEqual(actual, expected);
 
@@ -59,13 +72,13 @@ namespace StockManagementUnitTests.Tests
             Stock stock1 = new Stock()
             {
                 Product = beefPatty,
-                Quantity = 10,
+                Quantity = 36,
             };
 
             Stock stock2 = new Stock()
             {
                 Product = buns,
-                Quantity = 100,
+                Quantity = 36,
             };
 
 
@@ -81,13 +94,13 @@ namespace StockManagementUnitTests.Tests
             List<StockSystem.StockManagement.Stock> expected = StockMockList;
 
             // Action
-            List<StockSystem.StockManagement.Stock> actual = new StockMaintenance().GetStockOnHand();
+            List<StockSystem.StockManagement.Stock> actual = stockOnHand.GetStockOnHand();
 
-         
+
             // Assert
 
-            CollectionAssert.AreEqual(expected, actual, new StackComparer());
-
+            // CollectionAssert.AreEqual(expected, actual, new StackComparer());
+            expected.Should().BeEquivalentTo(actual);
 
         }
 
