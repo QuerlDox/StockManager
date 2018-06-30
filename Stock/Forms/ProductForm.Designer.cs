@@ -111,7 +111,7 @@
             this.statusLbl.AutoSize = true;
             this.statusLbl.Location = new System.Drawing.Point(323, 34);
             this.statusLbl.Name = "statusLbl";
-            this.statusLbl.Size = new System.Drawing.Size(37, 13);
+            this.statusLbl.Size = new System.Drawing.Size(74, 13);
             this.statusLbl.TabIndex = 7;
             this.statusLbl.Text = "ProductStatus";
             // 
@@ -147,7 +147,7 @@
             this.productStatusData.HeaderText = "ProductStatus ";
             this.productStatusData.Name = "productStatusData";
             // 
-            // Products
+            // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -161,7 +161,7 @@
             this.Controls.Add(this.productStatusComboBox);
             this.Controls.Add(this.productNameDataTxtBox);
             this.Controls.Add(this.productCodeDataTxtBox);
-            this.Name = "Products";
+            this.Name = "ProductForm";
             this.Text = "Products";
             this.Load += new System.EventHandler(this.Products_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).EndInit();

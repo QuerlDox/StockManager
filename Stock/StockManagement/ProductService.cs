@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace StockSystem
 {
-    class ProductService
+    class StockMaintenanceUsingDB
     {
         public string message;
 
-        public ProductService() {
+        public StockMaintenanceUsingDB() {
             loadData();
         }
 
@@ -41,6 +41,15 @@ namespace StockSystem
 
         }
 
+        internal void RemoveProductFromStock(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void AddProductToStock(Product product, int v)
+        {
+            throw new NotImplementedException();
+        }
 
         public void deleteProductItem(Product product)
         {

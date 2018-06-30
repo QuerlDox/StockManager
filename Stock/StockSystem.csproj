@@ -52,11 +52,13 @@
     <Compile Include="DatabaseAccess\ConnectionFactory.cs" />
     <Compile Include="Persistence\ProductComparer.cs" />
     <Compile Include="Persistence\StockInformation.cs" />
+    <Compile Include="ProductManagement\IProductMaintenance.cs" />
+    <Compile Include="ProductManagement\ProductMaintenance.cs" />
     <Compile Include="Repositories\IProductRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
-    <Compile Include="StockManagement\IProductMaintenance.cs" />
     <Compile Include="Models\Stock.cs" />
     <Compile Include="StockManagement\StockMaintenance.cs" />
+    <Compile Include="StockManagement\IStockMaintenance.cs" />
     <Compile Include="Tests\TestObjectFactory.cs" />
     <Compile Include="UserAccess\Login.cs" />
     <Compile Include="Forms\LoginForm.cs">
@@ -124,7 +126,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="EmployeeMaintenance\" />
-    <Folder Include="ProductMaintenance\" />
     <Folder Include="SupplierMaintenance\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

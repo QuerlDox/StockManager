@@ -1,4 +1,7 @@
-﻿using System;
+﻿using StockSystem.Persistence;
+using StockSystem.ProductManagement;
+using StockSystem.StockManagement;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,9 +18,12 @@ namespace StockSystem
 {
     public partial class ProductForm : Form
     {
-       private ProductService productService;
+      // private StockMaintenanceUsingDB _stockMaintenance;
        private  Product product;
        
+        private ProductMaintenance _productMaintenance;
+        private static StockInformation stockInfo = StockInformation.Instance();
+        private IStockMaintenance _stockMaintenance = new StockManagement.StockMaintenance(stockInfo);
 
         public ProductForm()
         {
@@ -37,13 +43,16 @@ namespace StockSystem
 
         private void addProductBtn_Click(object sender, EventArgs e)
         {
+           
             product = new Product();
-            productService = new ProductService();
+            _productMaintenance = new ProductMaintenance(stockInfo);
             product.ProductCode = productCodeDataTxtBox.Text;
             product.ProductName = productNameDataTxtBox.Text;
             product.ProductStatus = productStatusComboBox.SelectedIndex;
 
-            productService.addProductItem(product);
+            _productMaintenance.AddProduct(product);
+           
+            MessageBox.Show(_productMaintenance.Message);
 
             productCodeDataTxtBox.Clear();
             productNameDataTxtBox.Clear();
@@ -74,33 +83,35 @@ namespace StockSystem
 
         private void deleteProductBtn_Click(object sender, EventArgs e)
         {
+            
+
             product = new Product();
+            _productMaintenance = new ProductMaintenance(stockInfo);
 
             product.ProductCode = productCodeDataTxtBox.Text;
             product.ProductName = productNameDataTxtBox.Text;
             product.ProductStatus = productStatusComboBox.SelectedIndex;
 
-            productService.deleteProductItem(product);
+            _productMaintenance.deleteProduct(product);
+            MessageBox.Show(_productMaintenance.Message);
 
             productCodeDataTxtBox.Clear();
             productNameDataTxtBox.Clear();
 
 
             // Read the Data from the Products table
-            MessageBox.Show(productService.message);
+          //  MessageBox.Show(_productMaintenance.message);
             showProductTable();
             
 
         }
 
         public void showProductTable() {
-            productDataGridView.Rows.Clear();
-            productService = new ProductService();
-          
-            
 
-           // foreach (DataRow item in productDao.dataTable.Rows)
-               foreach(Product item in productService.loadData())
+            productDataGridView.Rows.Clear();
+                   
+
+            foreach (Product item in _stockMaintenance.GetStocksOnHand().Select(c => c.Product))
             {
                 int n = productDataGridView.Rows.Add();
                 productDataGridView.Rows[n].Cells[0].Value = item.ProductCode;
@@ -115,6 +126,13 @@ namespace StockSystem
                 }
 
             }
-        }
+
+
+            productDataGridView.Sort(productDataGridView.Columns[0], ListSortDirection.Ascending);
+
+        } // end ProductTable()
+
+
+
     }
 }

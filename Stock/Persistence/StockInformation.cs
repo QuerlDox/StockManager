@@ -15,6 +15,7 @@ namespace StockSystem.Persistence
 
         private IDictionary<Product, Stock> _stockDictionary;
         private BinaryFormatter _formatter;
+        public string message;
 
         private const string DATA_FILENAME = "C:\\Users\\thebr\\Documents\\_stockInformation.dat";
 
@@ -38,10 +39,12 @@ namespace StockSystem.Persistence
             if (this._stockDictionary.ContainsKey(product))
             {
                 Console.WriteLine("You had already added " + product.ProductName + "before.");
+                message = "You had already added " + product.ProductName + "before.";
             }
             else {
                 this._stockDictionary.Add(product, new Stock(product, qty));
                 Console.WriteLine("The product " + product.ProductName + " has been added");
+                message = "The product " + product.ProductName + " has been successfully added";
             }
         }
 
@@ -54,10 +57,12 @@ namespace StockSystem.Persistence
                 if (this._stockDictionary.Remove(product))
                 {
                     Console.WriteLine(product.ProductName + "had been removed successfully");
+                    message = product.ProductName + "had been removed successfully";
                 }
                 else {
 
                     Console.WriteLine(" Unable to remove " + product.ProductName);
+                    message = " Unable to remove " + product.ProductName;
                 }
             }
         }

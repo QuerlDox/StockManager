@@ -15,7 +15,7 @@ namespace StockManagementXUnitTests.Test
     {
         private static StockInformation stockInfo = StockInformation.Instance();
 
-        private StockMaintenance stockOnHand = new StockMaintenance(stockInfo);
+        private StockSystem.StockManagement.StockMaintenance stockOnHand = new StockSystem.StockManagement.StockMaintenance(stockInfo);
 
         [Fact]
         public void UpdateProductQty_shouldChangeProductQtyInStock_inXunit()
