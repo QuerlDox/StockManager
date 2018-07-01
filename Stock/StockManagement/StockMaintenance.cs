@@ -36,6 +36,7 @@ namespace StockSystem.StockManagement
             _stockInfo.Load();
             _stockInfo.UpdateStock(product, qty);
             _stockInfo.Save();
+            _message = _stockInfo.message;
         }
 
 

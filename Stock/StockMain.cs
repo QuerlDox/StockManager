@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StockSystem.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,6 +30,14 @@ namespace StockSystem
             ProductForm productForm = new ProductForm();
             productForm.MdiParent = this;
             productForm.Show();
+
+        }
+
+        private void MenuItemStock_Click(object sender, EventArgs e)
+        {
+            StockInventoryForm stockInventoryForm = new StockInventoryForm();
+            stockInventoryForm.MdiParent = this;
+            stockInventoryForm.Show();
         }
     }
 }

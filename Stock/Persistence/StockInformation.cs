@@ -192,6 +192,7 @@ namespace StockSystem.Persistence
             {
 
                 Console.WriteLine(" Unable to update " + product.ProductName);
+                message = " Unable to update " + product.ProductName;
             }
 
         }

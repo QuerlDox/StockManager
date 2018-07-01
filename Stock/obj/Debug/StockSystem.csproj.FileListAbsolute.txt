@@ -13,3 +13,4 @@ C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\obj\Debug\Stock
 C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\obj\Debug\StockSystem.exe
 C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\obj\Debug\StockSystem.pdb
 C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\obj\Debug\StockSystem.csprojAssemblyReference.cache
+C:\Users\thebr\Documents\Visual Studio 2017\Projects\Stock\Stock\obj\Debug\StockSystem.Forms.StockInventoryForm.resources
