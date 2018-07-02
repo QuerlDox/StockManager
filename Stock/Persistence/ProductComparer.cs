@@ -15,7 +15,8 @@ namespace StockSystem.Persistence
         public bool Equals(Product x, Product y)
         {
             bool isEqual = false;
-            
+           
+                      
             foreach (PropertyInfo prop in x.GetType().GetProperties()) {
                 isEqual = prop.GetValue(x, null).Equals(prop.GetValue(y, null));
                 if (!isEqual)

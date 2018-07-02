@@ -59,5 +59,6 @@ namespace StockSystem.StockManagement
             _stockInfo.Save();
         }
 
-    }
+
+     }
 }

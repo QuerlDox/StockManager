@@ -128,7 +128,7 @@ namespace StockSystem.Persistence
 
                 foreach (Stock item in this._stockDictionary.Values)
                 {   // TODO create a method that tests if two objects are equal in value(all value of their properties are the same)
-                    if (item.Product.ProductCode == product.ProductCode) {
+                    if (new ProductComparer().Equals(item.Product, product)) {
                         _product = item.Product;
                     }
 
