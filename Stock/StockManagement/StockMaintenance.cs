@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace StockSystem.StockManagement
 {
-    internal class StockMaintenance:IStockMaintenance
+    internal class StockMaintenance
     {
-        private StockInformation _stockInfo;
+        private IStockInformation _stockInfo;
         private string _message;
         public string Message { get { return this._message; } set { this._message = value; } }
 
@@ -18,16 +18,17 @@ namespace StockSystem.StockManagement
 
         }
        
-        public StockMaintenance(StockInformation stockInfo) {
-           _stockInfo = StockInformation.Instance();
-           _stockInfo = stockInfo;
+        public StockMaintenance(StockInformationInFile stockInfo) {
+
+          _stockInfo = StockInformationInFile.Instance();
+          _stockInfo = stockInfo;
 
         }
 
         public void AddProductToStock(Product product, int qty) {
             _stockInfo.Load();
             _stockInfo.AddStock(product, qty);
-            _message = _stockInfo.message;
+            _message = _stockInfo.GetMessage();
             _stockInfo.Save();
         }
 
@@ -36,7 +37,7 @@ namespace StockSystem.StockManagement
             _stockInfo.Load();
             _stockInfo.UpdateStock(product, qty);
             _stockInfo.Save();
-            _message = _stockInfo.message;
+           _message = _stockInfo.GetMessage();
         }
 
 
@@ -55,7 +56,7 @@ namespace StockSystem.StockManagement
         public void RemoveProductFromStock(Product product) {
             _stockInfo.Load();
             _stockInfo.RemoveStock(product);
-            _message = _stockInfo.message;
+            _message = _stockInfo.GetMessage();
             _stockInfo.Save();
         }
 

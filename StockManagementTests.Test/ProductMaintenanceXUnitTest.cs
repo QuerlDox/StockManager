@@ -20,7 +20,7 @@ namespace StockManagementTests.Test
         private Stock stock1;
         private Stock stock2;
 
-        private static StockInformation stockInfo =  StockInformation.Instance();
+        private static StockInformationInFile stockInfo =  StockInformationInFile.Instance();
         private ProductMaintenance productMaintenanceObj = new ProductMaintenance(stockInfo);
         private StockMaintenance stockMaintenanceObj = new StockMaintenance(stockInfo);
         

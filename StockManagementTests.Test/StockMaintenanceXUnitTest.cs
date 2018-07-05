@@ -13,7 +13,7 @@ namespace StockManagementXUnitTests.Test
 {
     public class StockMaintenanceXUnitTest
     {
-        private static StockInformation stockInfo = StockInformation.Instance();
+        private static StockInformationInFile stockInfo = StockInformationInFile.Instance();
 
         private StockSystem.StockManagement.StockMaintenance stockMaintenanceObj = new StockSystem.StockManagement.StockMaintenance(stockInfo);
 

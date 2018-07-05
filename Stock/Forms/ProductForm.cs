@@ -22,8 +22,8 @@ namespace StockSystem
        private  Product product;
        
         private ProductMaintenance _productMaintenance;
-        private static StockInformation stockInfo = StockInformation.Instance();
-        private IStockMaintenance _stockMaintenance = new StockManagement.StockMaintenance(stockInfo);
+        private static StockInformationInFile stockInfo = StockInformationInFile.Instance();
+        private StockMaintenance _stockMaintenance = new StockManagement.StockMaintenance(stockInfo);
 
         public ProductForm()
         {

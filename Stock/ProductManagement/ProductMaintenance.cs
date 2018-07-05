@@ -21,7 +21,7 @@ namespace StockSystem.ProductManagement
 
         }
 
-        public ProductMaintenance(StockInformation stockInfo)
+        public ProductMaintenance(StockInformationInFile stockInfo)
         {
             _stockMaintenance = new StockMaintenance(stockInfo);
             
