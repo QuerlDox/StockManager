@@ -26,7 +26,7 @@ namespace StockSystem
                  sqlQuery = @"UPDATE [Products] SET [ProductName] = '" + product.ProductName + "' ,[ProductStatus] = '" + product.ProductStatus + "' WHERE [ProductCode] = '" + product.ProductCode + "'";
               
 
-                using (IDbConnection idbConnection = ConnectionFactory.GetConnection())
+                using (IDbConnection idbConnection = ConnectionFactory.OpenConnection())
                 {
                     idbConnection.Execute(sqlQuery);
                     

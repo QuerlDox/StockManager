@@ -17,7 +17,7 @@ namespace StockSystem
 
         public void Delete(Product product)
         {
-            using (IDbConnection idbConnection = ConnectionFactory.GetConnection()) {
+            using (IDbConnection idbConnection = ConnectionFactory.OpenConnection()) {
                  idbConnection.Query<Product>("DELETE FROM[dbo].[Products] WHERE[ProductCode] = '" + product.ProductCode + "'");
                 idbConnection.Close();
             }
@@ -27,7 +27,7 @@ namespace StockSystem
         public List<Product> GetAll()
         {
 
-            using (IDbConnection idbConnection = ConnectionFactory.GetConnection()) {
+            using (IDbConnection idbConnection = ConnectionFactory.OpenConnection()) {
                   List<Product> product = idbConnection.Query<Product>("Select ProductCode, ProductName, ProductStatus from Products").ToList();
                  idbConnection.Close();
                  return product;
@@ -36,7 +36,7 @@ namespace StockSystem
 
         public Product GetById(int id)
         {
-            using (IDbConnection idbConnection = ConnectionFactory.GetConnection())
+            using (IDbConnection idbConnection = ConnectionFactory.OpenConnection())
             {
                 Product product = idbConnection.Query<Product>("SELECT * FROM [Stock].[dbo].[Products] WHERE [ProductCode] = @Id", new {Id = id}).FirstOrDefault();
                 idbConnection.Close();
@@ -46,7 +46,7 @@ namespace StockSystem
 
         public void Add(Product product)
         {
-            using (IDbConnection idbConnection = ConnectionFactory.GetConnection())
+            using (IDbConnection idbConnection = ConnectionFactory.OpenConnection())
             {
                 string sqlQuery =  @"INSERT INTO[Stock].[dbo].[Products] ([ProductCode],[ProductName],[ProductStatus]) VALUES ('" + product.ProductCode + "',' " + product.ProductName + "',' " + product.ProductStatus + "')";
                 idbConnection.Execute(sqlQuery);

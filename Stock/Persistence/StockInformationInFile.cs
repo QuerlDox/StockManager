@@ -46,14 +46,13 @@ namespace StockSystem.Persistence
             if (this._stockDictionary.ContainsKey(product))
             {
                 Console.WriteLine("You had already added " + product.ProductName + "before.");
-                string message = "You had already added " + product.ProductName + "before.";
-                SetMessage(message);
-            }
+                 _message = "You had already added " + product.ProductName + "before.";
+           }
             else {
                 this._stockDictionary.Add(product, new Stock(product, qty));
                 Console.WriteLine("The product " + product.ProductName + " has been added");
-                string message = "The product " + product.ProductName + " has been successfully added";
-                SetMessage(message); 
+                _message = "The product " + product.ProductName + " has been successfully added";
+                Save();
             }
         }
 
@@ -61,26 +60,24 @@ namespace StockSystem.Persistence
             if (!this._stockDictionary.ContainsKey(product))
             {
                 Console.WriteLine(product.ProductName + " had not been added before.");
-                string message = product.ProductName + " had not been added before.";
-                SetMessage(message);
-            }
+                _message = product.ProductName + " had not been added before.";
+             }
             else {
                 if (this._stockDictionary.Remove(product))
                 {
                     Console.WriteLine(product.ProductName + "had been removed successfully");
-                    string message = product.ProductName + "had been removed successfully";
-                    SetMessage(message);
-                }
+                    _message = product.ProductName + " had been removed successfully";
+                    Save();
+                 }
                 else {
 
                     Console.WriteLine(" Unable to remove " + product.ProductName);
-                    string message = " Unable to remove " + product.ProductName;
-                    SetMessage(message);
-                }
+                    _message = " Unable to remove " + product.ProductName;
+                 }
             }
         }
 
-        public void Save() {
+        internal void Save() {
 
             try
             {
@@ -92,8 +89,7 @@ namespace StockSystem.Persistence
             }
             catch (Exception) {
                 Console.WriteLine("Unable to save stock information");
-                string message = "Unable to save stock information";
-                SetMessage(message);
+                _message = "Unable to save stock information";
             }
 
         }
@@ -112,8 +108,7 @@ namespace StockSystem.Persistence
                 }
                 catch (Exception) {
                     Console.WriteLine("There are seems to be a file that contains  stock information but somehow  there is a problem reading it and your are completely fucked ");
-                    string message = "There are seems to be a file that contains  stock information but somehow  there is a problem reading it and your are completely fucked ";
-                    SetMessage(message);
+                    _message = "There are seems to be a file that contains  stock information but somehow  there is a problem reading it and your are completely fucked ";
                 }
             }
 
@@ -127,17 +122,14 @@ namespace StockSystem.Persistence
                 foreach (Stock item in this._stockDictionary.Values)
                 {
                     Console.WriteLine(item.Product.ProductName + "   " + item.Quantity);
-                    string message = item.Product.ProductName + "   " + item.Quantity;
-                    SetMessage(message);
-
-                }
+                    _message = item.Product.ProductName + "   " + item.Quantity;
+                 }
 
             }
             else {
                 Console.WriteLine("There are no saved data for the stock information");
-                string message = "There are no saved data for the stock information";
-                SetMessage(message);
-            }
+                _message = "There are no saved data for the stock information";
+             }
         }
 
 
@@ -159,8 +151,7 @@ namespace StockSystem.Persistence
             else
             {
                 Console.WriteLine("There are no saved data for the stock information");
-                string message = "There are no saved data for the stock information";
-                SetMessage(message);
+                _message = "There are no saved data for the stock information";
             }
 
 
@@ -204,19 +195,19 @@ namespace StockSystem.Persistence
         public void UpdateStock(Product product, int qty)
         {
             Stock _val;
-            string message;
+            
 
             if (this._stockDictionary.TryGetValue(product, out _val))
             {
 
                 this._stockDictionary[product].Quantity =  qty;
+                Save();
             }
             else
             {
 
                 Console.WriteLine(" Unable to update " + product.ProductName);
-                message = " Unable to update " + product.ProductName;
-                SetMessage(message);
+                _message = " Unable to update " + product.ProductName;
             }
 
         }
@@ -244,10 +235,7 @@ namespace StockSystem.Persistence
 
         }
 
-        public void SetMessage(string msg) {
-            this._message = msg;
-
-        }
+ 
 
         public string GetMessage() {
             return this._message;

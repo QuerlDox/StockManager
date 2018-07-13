@@ -116,7 +116,7 @@ namespace StockManagementTests.Test
             beefPatty = new Product
             {
                 ProductCode = "1",
-                ProductName = "beefPatty",
+                ProductName = "Beef Patty",
                 ProductStatus = 0
             };
 

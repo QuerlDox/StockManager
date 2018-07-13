@@ -13,7 +13,7 @@ namespace StockSystem
         {
             
             string insertQuery = @"INSERT INTO [dbo].[Login] ([UserName], [Password]) VALUES  (@UserName, @Password)";
-            using (var con = ConnectionFactory.GetConnection()) {
+            using (var con = ConnectionFactory.OpenConnection()) {
                 try
                 {
                     con.Execute(insertQuery, new {

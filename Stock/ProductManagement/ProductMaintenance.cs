@@ -28,6 +28,10 @@ namespace StockSystem.ProductManagement
 
         }
 
+        public ProductMaintenance(StockInformationSQLServer stockInfo) {
+            _stockMaintenance = new StockMaintenance(stockInfo);
+        }
+
 
         public void AddProduct(Product product) {
             if (this.ProductCodeInUse(Int32.Parse(product.ProductCode)))

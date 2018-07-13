@@ -22,12 +22,16 @@ namespace StockSystem
        private  Product product;
        
         private ProductMaintenance _productMaintenance;
-        private static StockInformationInFile stockInfo = StockInformationInFile.Instance();
-        private StockMaintenance _stockMaintenance = new StockManagement.StockMaintenance(stockInfo);
+        //  private StockInformationInFile stockInfo;
+        private StockInformationSQLServer stockInfo;
+        private StockMaintenance _stockMaintenance;
 
         public ProductForm()
         {
             InitializeComponent();
+            //  stockInfo = StockInformationInFile.Instance();
+            stockInfo = new StockInformationSQLServer();
+            _stockMaintenance = new StockManagement.StockMaintenance(stockInfo);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -100,7 +104,7 @@ namespace StockSystem
 
 
             // Read the Data from the Products table
-          //  MessageBox.Show(_productMaintenance.message);
+          //  MessageBox.Show(_productMaintenance._message);
             showProductTable();
             
 

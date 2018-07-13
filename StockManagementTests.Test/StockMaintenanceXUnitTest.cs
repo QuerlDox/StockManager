@@ -8,12 +8,14 @@ using Xunit;
 using StockSystem;
 using FluentAssertions;
 using StockSystem.Persistence;
+using System.Data.SqlClient;
 
 namespace StockManagementXUnitTests.Test
 {
     public class StockMaintenanceXUnitTest
     {
         private static StockInformationInFile stockInfo = StockInformationInFile.Instance();
+       // private static StockInformationSQLServer stockInfo = new  StockInformationSQLServer();
 
         private StockSystem.StockManagement.StockMaintenance stockMaintenanceObj = new StockSystem.StockManagement.StockMaintenance(stockInfo);
 
@@ -127,10 +129,13 @@ namespace StockManagementXUnitTests.Test
             List<StockSystem.StockManagement.Stock> expected = StockMockList;
 
             // Action
-            List<StockSystem.StockManagement.Stock> actual = stockMaintenanceObj.GetStocksOnHand();
+           
 
+                List<StockSystem.StockManagement.Stock> actual = stockMaintenanceObj.GetStocksOnHand();
+                expected.Should().BeEquivalentTo(actual);
+           
        
-            expected.Should().BeEquivalentTo(actual);
+            
 
         }
 
@@ -140,7 +145,7 @@ namespace StockManagementXUnitTests.Test
              beefPatty = new Product
             {
                 ProductCode = "1",
-                ProductName = "beefPatty",
+                ProductName = "Beef Patty",
                 ProductStatus = 0
             };
 

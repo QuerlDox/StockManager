@@ -25,18 +25,27 @@ namespace StockSystem.StockManagement
 
         }
 
+        public StockMaintenance(StockInformationSQLServer stockInfo)
+        {
+
+           
+            _stockInfo = stockInfo;
+
+        }
+
+
         public void AddProductToStock(Product product, int qty) {
             _stockInfo.Load();
             _stockInfo.AddStock(product, qty);
             _message = _stockInfo.GetMessage();
-            _stockInfo.Save();
+          //  _stockInfo.Save();
         }
 
         public void UpdateProductQty(Product product, int qty) {
         
             _stockInfo.Load();
             _stockInfo.UpdateStock(product, qty);
-            _stockInfo.Save();
+           // _stockInfo.Save();
            _message = _stockInfo.GetMessage();
         }
 
@@ -57,7 +66,7 @@ namespace StockSystem.StockManagement
             _stockInfo.Load();
             _stockInfo.RemoveStock(product);
             _message = _stockInfo.GetMessage();
-            _stockInfo.Save();
+         //   _stockInfo.Save();
         }
 
 

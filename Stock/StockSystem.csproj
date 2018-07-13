@@ -58,7 +58,8 @@
     </Compile>
     <Compile Include="Persistence\IStockInformation.cs" />
     <Compile Include="Persistence\ProductComparer.cs" />
-    <Compile Include="Persistence\StockInformation.cs" />
+    <Compile Include="Persistence\StockInformationInFile.cs" />
+    <Compile Include="Persistence\StockInformationSQLServer.cs" />
     <Compile Include="ProductManagement\IProductMaintenance.cs" />
     <Compile Include="ProductManagement\ProductMaintenance.cs" />
     <Compile Include="Repositories\IProductRepository.cs" />

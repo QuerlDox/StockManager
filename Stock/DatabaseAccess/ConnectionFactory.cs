@@ -16,7 +16,7 @@ namespace StockSystem
         static SqlConnection sqlConnection = new SqlConnection();
         static string sqlConnectionString = Resources.getDatabaseConnectionString(sqlServerName);
         
-        public static IDbConnection GetConnection() {
+        public static IDbConnection OpenConnection() {
             try
             {
                 if (sqlConnection.State != System.Data.ConnectionState.Open)

@@ -17,7 +17,8 @@ namespace StockSystem.Forms
         private List<Stock> stockList;
         private Product product;
         private Stock stock;
-        private static StockInformationInFile stockInfo = StockInformationInFile.Instance();
+        //private static StockInformationInFile stockInfo = StockInformationInFile.Instance();
+        private static StockInformationSQLServer stockInfo = new StockInformationSQLServer();
         private StockMaintenance _stockMaintenance = new StockManagement.StockMaintenance(stockInfo);
 
         public StockInventoryForm()
@@ -100,7 +101,8 @@ namespace StockSystem.Forms
                 _stockMaintenance.UpdateProductQty(item.Product, item.Quantity);
                 
             }
-            MessageBox.Show("Stock Inventory Saved");
+            MessageBox.Show(" Stock Inventory Saved Update Successful \n \n" );
+            
             showStockInventoryTable();
             this.Close();
 

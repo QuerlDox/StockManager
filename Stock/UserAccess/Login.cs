@@ -18,7 +18,7 @@ namespace StockSystem
 
             try
             {
-                using (SqlConnection sqlConnection = (SqlConnection)ConnectionFactory.GetConnection()) 
+                using (SqlConnection sqlConnection = (SqlConnection)ConnectionFactory.OpenConnection()) 
                 {
                     
                     using (SqlCommand sqlCommand = new SqlCommand(sqlQuery, sqlConnection))
@@ -39,9 +39,9 @@ namespace StockSystem
                         }
 
                     }
-
+                    
                 }
-
+                    
 
             }
             catch (Exception ex)
