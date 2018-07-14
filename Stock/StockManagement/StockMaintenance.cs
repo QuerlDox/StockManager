@@ -69,11 +69,24 @@ namespace StockSystem.StockManagement
 
         public void RemoveProductFromStock(Product product) {
             _stockInfo.Load();
-            _stockInfo.RemoveStock(product);
-            _message = _stockInfo.GetMessage();
-          
+            if (product.ProductStatus != 0)
+            {
+                if (_stockInfo.GetStockQty(product) == 0)
+                {
+                    _stockInfo.RemoveStock(product);
+                    _message = _stockInfo.GetMessage();
+                }
+                else
+                {
 
-            //   _stockInfo.Save();
+                    _message = product.ProductName + " stock quantity is not zero and thus cannot be deleted";
+                }
+
+            }
+            else {
+                _message = product.ProductName + " stock is still active, only inactive stocks can be deleted ";
+            }
+            
         }
 
 
