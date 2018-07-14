@@ -22,15 +22,15 @@ namespace StockSystem
        private  Product product;
        
         private ProductMaintenance _productMaintenance;
-        //  private StockInformationInFile stockInfo;
-        private StockInformationSQLServer stockInfo;
+         private StockInformationInFile stockInfo;
+     //   private StockInformationSQLServer stockInfo;
         private StockMaintenance _stockMaintenance;
 
         public ProductForm()
         {
             InitializeComponent();
-            //  stockInfo = StockInformationInFile.Instance();
-            stockInfo = new StockInformationSQLServer();
+              stockInfo = StockInformationInFile.Instance();
+           // stockInfo = new StockInformationSQLServer();
             _stockMaintenance = new StockManagement.StockMaintenance(stockInfo);
         }
 

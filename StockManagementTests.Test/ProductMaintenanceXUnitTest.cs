@@ -99,10 +99,10 @@ namespace StockManagementTests.Test
         public void GetProductCodeList_shouldReturnTheListOfProductCodeOfProductsInStocks() {
 
             // Arrange
-            List<int> expected = new List<int>() { 1, 2 };
+            List<string> expected = new List<string>() { "1", "2" };
 
             // Action
-            List<int> actual = productMaintenanceObj.GetProductCodeList();
+            List<string> actual = productMaintenanceObj.GetProductCodeList();
 
             // Assert
             expected.Should().BeEquivalentTo(actual);

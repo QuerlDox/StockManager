@@ -103,7 +103,7 @@ namespace StockSystem.Persistence
             {
                 using (IDbConnection idbConnection = ConnectionFactory.OpenConnection())
                 {
-
+                    
                     _productList = idbConnection.Query<Product>("Select ProductCode, ProductName, ProductStatus from Product").ToList();
                     _stockDictionary = idbConnection.Query("Select ProductCode, Quantity from Stock").ToDictionary(row => (string)row.ProductCode, row => (int)row.Quantity);
                     ConnectionFactory.CloseConnection();

@@ -34,7 +34,7 @@ namespace StockSystem.ProductManagement
 
 
         public void AddProduct(Product product) {
-            if (this.ProductCodeInUse(Int32.Parse(product.ProductCode)))
+            if (this.ProductCodeInUse(product.ProductCode))
             {
                 _message = " Sorry the product code " + product.ProductCode + " is already in use, please try a different number.";
             }
@@ -52,19 +52,19 @@ namespace StockSystem.ProductManagement
 
         }
 
-        public List<int> GetProductCodeList() {
-            List<int> productCodeList = new List<int>();
+        public List<string> GetProductCodeList() {
+            List<string> productCodeList = new List<string>();
             foreach (Stock item in _stockMaintenance.GetStocksOnHand()) {
-                productCodeList.Add(Int32.Parse(item.Product.ProductCode));
+                productCodeList.Add(item.Product.ProductCode);
             }
             return productCodeList;
         }
 
-        internal bool ProductCodeInUse(int productCode) {
+        internal bool ProductCodeInUse(string productCode) {
 
             bool itemInUse = false;
-            foreach (int item in GetProductCodeList()) {
-                if (item == productCode) {
+            foreach (string item in GetProductCodeList()) {
+                if (item.Equals(productCode)) {
                     itemInUse = true;
                 }
             }
